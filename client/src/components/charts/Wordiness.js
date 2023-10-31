@@ -11,6 +11,7 @@ const Wordiness = (props) => {
         const response = await fetch(`http://localhost:5000/analytics/wordiness/${props.startMonth}/${props.endMonth}`);
         const data = await response.json();
         setWordinessData(data);
+        console.log(data)
     };
 
     useEffect(()=>{
@@ -66,6 +67,9 @@ const Wordiness = (props) => {
 
     return (
         <div className='chartDiv'>
+            <h1>Wordiness</h1>
+            <p className='description'>Shows how many words per exchange, by subject and by gender</p>
+            
         <ResponsiveBar
         data={cleanData}
         keys={['Female', 'Male']}

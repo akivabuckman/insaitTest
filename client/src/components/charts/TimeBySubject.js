@@ -63,6 +63,9 @@ const TimeBySubject = (props) => {
 
     return (
         <div className='chartDiv'>
+              <h1>Time By Subject</h1>
+            <p className='description'>Shows conversations' most frequent time of day, per each subject</p>
+            
                         <ResponsiveBar
                     data={cleanData}
                     keys={[
@@ -180,7 +183,6 @@ const TimeBySubject = (props) => {
                     ariaLabel="Nivo bar chart demo"
                     barAriaLabel={e=>e.id+": "+e.formattedValue+" in country: "+e.indexValue}
                 /> 
-                <button onClick={Loggy}>loggy</button>   
         </div>
     
     )

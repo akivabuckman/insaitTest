@@ -99,6 +99,9 @@ const LengthBySubject = (props) => {
    
     return(
         <div className='chartDiv'>
+              <h1>Length By Subject</h1>
+            <p className='description'>Shows average conversation length of each conversation subject</p>
+            
              <ToggleButtonGroup
         color="primary"
         value={chosenParam}

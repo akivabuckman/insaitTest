@@ -1,12 +1,13 @@
 import './App.css';
-import TimeBySubject from './charts/TimeBySubject';
+import TimeBySubject from './components/charts/TimeBySubject';
 import { useEffect, useState, useSyncExternalStore } from 'react';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
-import MenuItem from '@mui/material/MenuItem';
-import SubjectByMonth from './charts/SubjectByMonth';
-import LengthBySubject from './charts/LengthBySubject';
-import ConversationsByGender from './charts/ConversationsByGender';
-import Wordiness from './charts/Wordiness';
+import SubjectByMonth from './components/charts/SubjectByMonth';
+import LengthBySubject from './components/charts/LengthBySubject';
+import ConversationsByGender from './components/charts/ConversationsByGender';
+import Wordiness from './components/charts/Wordiness';
+import { Routes, Link, Route, Router, Switch } from "react-router-dom";
+import Months from './components/other/Months';
+import Home from './components/other/Home';
 
 
 
@@ -28,61 +29,45 @@ function App() {
   }, []);
 
 
-  // month filtering
-  const handleStartChange = (event) => {
-    setStartMonth(event.target.value.toString())
-  };
-
-  const handleEndChange = (event) => {
-    setEndMonth(event.target.value.toString())
-  };
-
-  // reset data, completely reset database
-  const resetData = async () => {
-    const response = await fetch("http://localhost:5000/conversations/populate", {
-      method: "POST",
-      headers: {"content-type": "application/json"},
-      body: JSON.stringify({"quantity": 100})
-    });
-    const data = await response.json();
-    setConversationData(data)
-  };
-
   return (
     <div className="App">
-      <div>
-        <button onClick={resetData}>Regenerate Data</button>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={startMonth}
-          label="Start"
-          onChange={handleStartChange}
-        >
-          {
-            Array.from({ length: 12 }, (_, i) => (
-              <MenuItem key={i} value={i + 1}>
-                {String(i + 1)}
-              </MenuItem>
-            ))
-          }
-        </Select>
+      <Months 
+        setConversationData={setConversationData}
+        setStartMonth={setStartMonth}
+        setEndMonth={setEndMonth}
+        startMonth={startMonth}
+        endMonth={endMonth}
+      />
 
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={endMonth}
-          label="End"
-          onChange={handleEndChange}
-        >
-          {
-            Array.from({ length: 12 }, (_, i) => (
-              <MenuItem key={i} value={i + 1}>
-                {String(i + 1)}
-              </MenuItem>
-            ))
-          }
-        </Select>
+        <Routes>
+          <Route path="/ConversationsByGender" element={<ConversationsByGender 
+                                            conversationData={conversationData}
+                                            startMonth={startMonth}
+                                            endMonth={endMonth}/>} />
+          <Route path="/LengthBySubject" element={<LengthBySubject 
+                                            conversationData={conversationData}
+                                            startMonth={startMonth}
+                                            endMonth={endMonth}/>} />
+          <Route path="/SubjectByMonth" element={<SubjectByMonth 
+                                            conversationData={conversationData}
+                                            startMonth={startMonth}
+                                            endMonth={endMonth}/>} />
+          <Route path="/TimeBySubject" element={<TimeBySubject 
+                                            conversationData={conversationData}
+                                            startMonth={startMonth}
+                                            endMonth={endMonth}/>} />
+          <Route path="/Wordiness" element={<Wordiness 
+                                            conversationData={conversationData}
+                                            startMonth={startMonth}
+                                            endMonth={endMonth}/>} />
+          <Route path="/" element={<Home 
+                                    conversationData={conversationData}
+                                    startMonth={startMonth}
+                                    endMonth={endMonth}/>} />
+
+        </Routes>
+
+        
 
             {/* <TimeBySubject 
               conversationData={conversationData}
@@ -106,13 +91,12 @@ function App() {
               endMonth={endMonth}
             /> */}
 
-            <Wordiness
+            {/* <Wordiness
               conversationData={conversationData}
               startMonth={startMonth}
               endMonth={endMonth}
-            />
+            /> */}
 
-      </div>
     </div>
   );
 }

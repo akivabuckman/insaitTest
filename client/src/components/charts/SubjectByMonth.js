@@ -78,6 +78,9 @@ const SubjectByMonth = (props) => {
 
     return(
         <div className='chartDiv'>
+              <h1>Subject By Month</h1>
+            <p className='description'>Shows trends of each subject's popularity over time</p>
+            
              <ResponsiveLine
                 data={cleanData}
                 margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
