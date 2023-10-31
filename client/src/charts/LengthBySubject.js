@@ -35,13 +35,14 @@ const LengthBySubject = (props) => {
             charCounts[i.subject].count ++;
             charCounts[i.subject].sum += i.exchanges.toString().length
         };
+        console.log("charcounts", charCounts)
         // calculate average length and format for chart
         const newData = subjects.map(subject => {
             const average = Math.round(charCounts[subject].sum / charCounts[subject].count);
 
             // capitalize first letters of each word of each subject
             const arr = subject.split(" ");
-            for (var i = 0; i < arr.length; i++) {
+            for (let i = 0; i < arr.length; i++) {
                 arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
 
             }
@@ -52,7 +53,8 @@ const LengthBySubject = (props) => {
                 "Character Count": average
             });
         });
-        setCleanData(newData)
+        setCleanData(newData);
+        console.log("XXX", newData)
 
         // exchange count
         // empty objects
@@ -71,7 +73,7 @@ const LengthBySubject = (props) => {
 
             // capitalize first letters of each word of each subject
             const arr = subject.split(" ");
-            for (var i = 0; i < arr.length; i++) {
+            for (let i = 0; i < arr.length; i++) {
                 arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
 
             }

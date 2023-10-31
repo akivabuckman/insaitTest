@@ -84,7 +84,7 @@ function App() {
           }
         </Select>
 
-            <TimeBySubject 
+            {/* <TimeBySubject 
               conversationData={conversationData}
               startMonth={startMonth}
               endMonth={endMonth}
@@ -104,7 +104,7 @@ function App() {
               conversationData={conversationData}
               startMonth={startMonth}
               endMonth={endMonth}
-            />
+            /> */}
 
             <Wordiness
               conversationData={conversationData}

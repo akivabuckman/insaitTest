@@ -20,80 +20,54 @@ const Wordiness = (props) => {
     // convert raw data to fit the chart
     const cleanTheData = () => {
         const subjects = ["mortgages", "wire transfers", "transfers", "credit cards", "accounts", "investments", "other"]
-        const wordinesses = {}
-        // loop through operation for both male and female
+        const genderedData={};
+        const counts = {};
+        const wordiness = {};
+        // loop through each gender
         for (let gender of ["male", "female"]) {
-            // filter data to gender
-            const genderedData = wordinessData
-                .filter(item => item.gender === gender)
-            // empty object for char and exch counts
-            const counts = subjects.reduce((acc, subject) => {
-                acc[subject] = {characters: 0, exchanges: 0};
+            genderedData[gender] = wordinessData
+                .filter(item => item.gender === gender);
+            counts[gender] = subjects.reduce((acc, subject) => {
+                acc[subject] = {textLength: 0, exchanges: 0};
                 return acc;
             }, {});
-            for (let i of genderedData) {
-                counts[i.subject].characters += i.exchanges.toString().length;
-                counts[i.subject].exchanges += i.exchanges.length;
+
+            for (let i of genderedData[gender]) {
+                counts[gender][i.subject].textLength += i.exchanges.toString().length;
+                counts[gender][i.subject].exchanges += i.exchanges.length;
             };
-            // calculate wordiness and format for chart
-            wordinesses[gender] = subjects.map(subject => {
-                const wordiness = Math.round(counts[subject].characters / counts[subject].exchanges);
-                // capitalize first letters of each word of each subject
-                const arr = subject.split(" ");
-                for (let j = 0; j < arr.length; j++) {
-                    arr[j] = arr[j].charAt(0).toUpperCase() + arr[j].slice(1);
-                };
-                const upperSubject = arr.join(" ");
-                return ({})
-            })}
-        for (let subject of subjects) {
-            for (let gender of ["male", "female"]) {
-                const genderedData = wordinessData
-                    .filter(item => item.gender === gender);
-                const counts = subjects.reduce((acc, subject) => {
-                    acc[subject] = {characters: 0, exchanges: 0};
-                    return acc;
-                }, {});
-                for (let i of genderedData) {
-                    counts[i.subject].characters += i.exchanges.toString().length;
-                    counts[i.subject].exchanges += i.exchanges.length;
-                }
-                console.log(counts)
+            wordiness[gender] = {};
+            for (let subject of subjects) {
+                wordiness[gender][subject] = Math.round(counts[gender][subject].textLength / counts[gender][subject].exchanges)
+            };
+        };
+
+        const newData = subjects.map(subject => {
+            // capitalize first letters of each word of each subject
+            const arr = subject.split(" ");
+            for (let i = 0; i < arr.length; i++) {
+                arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+
             }
-        }
+            const upperSubject = arr.join(" ");
+
+            return ({
+                "Male": wordiness["male"][subject],
+                "Female": wordiness["female"][subject],
+                "subject": upperSubject
+            });
+        });
+        setCleanData(newData)
     }
-
-
-
-        
-    
 
     useEffect(() => {
         cleanTheData();
     }, [wordinessData]);
 
-    const dataaa = [
-        {
-            "Male": 6,
-            "Female": 0,
-            "subject": "Transfers"
-        },
-        {
-            "Male": 0,
-            "Female": 1,
-            "subject": "Accounts"
-        },
-        {
-            "Male": 2,
-            "Female": 1,
-            "subject": "Wires"
-        }
-    ]
-
     return (
         <div className='chartDiv'>
         <ResponsiveBar
-        data={dataaa}
+        data={cleanData}
         keys={['Female', 'Male']}
         indexBy="subject"
         margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
@@ -146,7 +120,7 @@ const Wordiness = (props) => {
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 0,
-            legend: "Wordiness",
+            legend: "Characters Per Message",
             legendPosition: 'middle',
             legendOffset: -40
         }}
