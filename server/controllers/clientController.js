@@ -6,7 +6,7 @@ import dotenv from "dotenv"
 dotenv.config()
 
 export const _addClient = async (req, res) => {
-    const gender = Math.random() < 0.5 ? "male" : "female";
+    const gender = Math.random() > 0.5 ? "male" : "female";
     const first_name = faker.person.firstName(gender).toLowerCase();
     const last_name = faker.person.lastName(gender).toLowerCase();
   

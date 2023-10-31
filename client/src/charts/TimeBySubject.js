@@ -1,7 +1,5 @@
 import { ResponsiveBar } from '@nivo/bar';
 import { useEffect, useState } from 'react';
-// import knex from "knex";
-
 
 const TimeBySubject = (props) => {
     const [timeBySubjectData, setTimeBySubjectData] = useState([]);
@@ -52,6 +50,7 @@ const TimeBySubject = (props) => {
                 })
             };
         };
+        console.log(newData)
         setCleanData(newData)
     }
 
@@ -63,7 +62,7 @@ const TimeBySubject = (props) => {
 
 
     return (
-        <div className='App'>
+        <div className='chartDiv'>
                         <ResponsiveBar
                     data={cleanData}
                     keys={[

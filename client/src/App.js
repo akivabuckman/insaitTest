@@ -3,12 +3,15 @@ import TimeBySubject from './charts/TimeBySubject';
 import { useEffect, useState, useSyncExternalStore } from 'react';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
+import SubjectByMonth from './charts/SubjectByMonth';
+import LengthBySubject from './charts/LengthBySubject';
+import ConversationsByGender from './charts/ConversationsByGender';
+import Wordiness from './charts/Wordiness';
 
 
 
 function App() {
   const [conversationData, setConversationData] = useState([]);
-  const [filteredData, setFilteredData] = useState([]);
   const [startMonth, setStartMonth] = useState(1);
   const [endMonth, setEndMonth] = useState(12);
 
@@ -23,11 +26,6 @@ function App() {
   useEffect(() => {
     getConversationData()
   }, []);
-
-  //upon initial load (and data reset), all data is relevant
-  useEffect(() => {
-    setFilteredData(conversationData)
-  }, [conversationData])
 
 
   // month filtering
@@ -53,7 +51,7 @@ function App() {
   return (
     <div className="App">
       <div>
-        <button onClick={resetData}>Load New Data</button>
+        <button onClick={resetData}>Regenerate Data</button>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
@@ -86,15 +84,34 @@ function App() {
           }
         </Select>
 
-        <div className='App'>
             <TimeBySubject 
               conversationData={conversationData}
-              filteredData={filteredData}
               startMonth={startMonth}
               endMonth={endMonth}
             />
-        </div>
-        
+            <SubjectByMonth 
+              conversationData={conversationData}
+              startMonth={startMonth}
+              endMonth={endMonth}
+            />
+
+            <LengthBySubject 
+              conversationData={conversationData}
+              startMonth={startMonth}
+              endMonth={endMonth}
+            />
+            <ConversationsByGender
+              conversationData={conversationData}
+              startMonth={startMonth}
+              endMonth={endMonth}
+            />
+
+            <Wordiness
+              conversationData={conversationData}
+              startMonth={startMonth}
+              endMonth={endMonth}
+            />
+
       </div>
     </div>
   );

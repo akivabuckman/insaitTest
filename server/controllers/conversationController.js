@@ -19,12 +19,12 @@ export const _addConversation = async (req, res) => {
 
         // generate start time, so that average time is 11:30
         // hour
-        const hour = Math.floor((Math.random()*23 + Math.random()*23) / 2).toLocaleString("en-US", {minimumIntegerDigits: 2, useGrouping: false}) // averages two integers between 0 and 23, then converts to two-character string
-        const minute = (Math.floor(Math.random()*59)).toLocaleString("en-US", {minimumIntegerDigits: 2, useGrouping: false}); // random int between 0-59, in string
-        const second = (Math.floor(Math.random()*59)).toLocaleString("en-US", {minimumIntegerDigits: 2, useGrouping: false}); // random int between 0-59, in string
+        const hour = Math.floor((Math.random()*24 + Math.random()*23) / 2).toLocaleString("en-US", {minimumIntegerDigits: 2, useGrouping: false}) // averages two integers between 0 and 23, then converts to two-character string
+        const minute = (Math.floor(Math.random()*60)).toLocaleString("en-US", {minimumIntegerDigits: 2, useGrouping: false}); // random int between 0-59, in string
+        const second = (Math.floor(Math.random()*60)).toLocaleString("en-US", {minimumIntegerDigits: 2, useGrouping: false}); // random int between 0-59, in string
         const year = "2023" // assume all this year
-        const month = ((Math.floor(Math.random()*9)+1).toLocaleString("en-US", {minimumIntegerDigits: 2, useGrouping: false})) // between january and october, 1-10
-        const day = ((Math.floor(Math.random()*27)+1).toLocaleString("en-US", {minimumIntegerDigits: 2, useGrouping: false})) // avoid february bugs, assume all 1-28
+        const month = ((Math.floor(Math.random()*10)+1).toLocaleString("en-US", {minimumIntegerDigits: 2, useGrouping: false})) // between january and october, 1-10
+        const day = ((Math.floor(Math.random()*28)+1).toLocaleString("en-US", {minimumIntegerDigits: 2, useGrouping: false})) // avoid february bugs, assume all 1-28
         const start_time = `${year}-${month}-${day}T${hour}:${minute}:${second}`
         
         // duration
