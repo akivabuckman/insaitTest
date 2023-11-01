@@ -13,7 +13,6 @@ The code to create the database and it's tables can be found in
 ```
 2. Inside the "client" folder, run the following command to install the client's dependencies:
 ```
-cd client
 npm i
 ```
 3. Navigate to the "server" folder, and run the same command to install the server's dependencies:
