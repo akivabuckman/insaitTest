@@ -29,14 +29,19 @@ const Months = (props) => {
 
     const goHome = () => {
       navigate("/")
+    };
+
+    const resetMonths = () => {
+      props.setStartMonth(1);
+      props.setEndMonth(12)
     }
 
 
 
     return (
         <div className="monthsDiv">
-            <Button onClick={goHome} size="medium" variant="contained" color="success" style={{ marginLeft: '20px' }}>Home</Button>
-            <Button onClick={resetData} variant="outlined" style={{ marginLeft: '20px' }}>Regenerate Data</Button>
+            <Button onClick={goHome} size="medium" variant="contained" style={{ marginLeft: '20px' }}>Home</Button>
+            <Button onClick={resetData} variant="outlined" color="warning" style={{ marginLeft: '20px', backgroundColor: "white", border: "2px solid #ec740c" }}>Regenerate Data</Button>
             <p>Start Month:</p>
             <Select
               labelId="demo-simple-select-label"
@@ -44,6 +49,7 @@ const Months = (props) => {
               value={props.startMonth}
               label="Start"
               onChange={handleStartChange}
+              style={{backgroundColor: "white",}}
             >
               {
                 Array.from({ length: 12 }, (_, i) => (
@@ -62,6 +68,7 @@ const Months = (props) => {
               value={props.endMonth}
               label="End"
               onChange={handleEndChange}
+              style={{backgroundColor: "white",}}
             >
               {
                 Array.from({ length: 12 }, (_, i) => (
@@ -71,6 +78,8 @@ const Months = (props) => {
                 ))
               }
             </Select>
+            <Button onClick={resetMonths} variant="outlined" style={{ marginLeft: '20px', backgroundColor: "white", border: "2px solid rgb(32,116,212)" }}>RESET MONTHS</Button>
+
         </div>
     )
 }

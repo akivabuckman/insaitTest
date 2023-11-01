@@ -39,7 +39,7 @@ const Wordiness = (props) => {
             };
             wordiness[gender] = {};
             for (let subject of subjects) {
-                wordiness[gender][subject] = Math.round(counts[gender][subject].textLength / counts[gender][subject].exchanges)
+                wordiness[gender][subject] = counts[gender][subject].exchanges === 0 ? 0 : Math.round(counts[gender][subject].textLength / counts[gender][subject].exchanges)
             };
         };
 
@@ -72,9 +72,237 @@ const Wordiness = (props) => {
             
         <ResponsiveBar
         data={cleanData}
+        theme={props.size === "small" ? {
+            "background": "#ffffff",
+            "text": {
+                "fontSize": 11,
+                "fill": "#333333",
+                "outlineWidth": 0,
+                "outlineColor": "transparent"
+            },
+            "axis": {
+                "domain": {
+                    "line": {
+                        "stroke": "#777777",
+                        "strokeWidth": 1
+                    }
+                },
+                "legend": {
+                    "text": {
+                        "fontSize": 12,
+                        "fill": "#333333",
+                        "outlineWidth": 0,
+                        "outlineColor": "transparent"
+                    }
+                },
+                "ticks": {
+                    "line": {
+                        "stroke": "#777777",
+                        "strokeWidth": 1
+                    },
+                    "text": {
+                        "fontSize": 0,
+                        "fill": "#333333",
+                        "outlineWidth": 0,
+                        "outlineColor": "transparent"
+                    }
+                }
+            },
+            "grid": {
+                "line": {
+                    "stroke": "#dddddd",
+                    "strokeWidth": 1
+                }
+            },
+            "legends": {
+                "title": {
+                    "text": {
+                        "fontSize": 11,
+                        "fill": "#333333",
+                        "outlineWidth": 0,
+                        "outlineColor": "transparent"
+                    }
+                },
+                "text": {
+                    "fontSize": 11,
+                    "fill": "#333333",
+                    "outlineWidth": 0,
+                    "outlineColor": "transparent"
+                },
+                "ticks": {
+                    "line": {},
+                    "text": {
+                        "fontSize": 111,
+                        "fill": "#333333",
+                        "outlineWidth": 0,
+                        "outlineColor": "transparent"
+                    }
+                }
+            },
+            "annotations": {
+                "text": {
+                    "fontSize": 13,
+                    "fill": "#333333",
+                    "outlineWidth": 2,
+                    "outlineColor": "#ffffff",
+                    "outlineOpacity": 1
+                },
+                "link": {
+                    "stroke": "#000000",
+                    "strokeWidth": 1,
+                    "outlineWidth": 2,
+                    "outlineColor": "#ffffff",
+                    "outlineOpacity": 1
+                },
+                "outline": {
+                    "stroke": "#000000",
+                    "strokeWidth": 2,
+                    "outlineWidth": 2,
+                    "outlineColor": "#ffffff",
+                    "outlineOpacity": 1
+                },
+                "symbol": {
+                    "fill": "#000000",
+                    "outlineWidth": 2,
+                    "outlineColor": "#ffffff",
+                    "outlineOpacity": 1
+                }
+            },
+            "tooltip": {
+                "container": {
+                    "background": "#ffffff",
+                    "fontSize": 12
+                },
+                "basic": {},
+                "chip": {},
+                "table": {},
+                "tableCell": {},
+                "tableCellValue": {}
+            },
+            "labels": {
+                "text": {
+                    "fontSize": 0
+                }
+            }
+        }
+        :
+        // big
+        {
+            "background": "#ffffff",
+            "text": {
+                "fontSize": 11,
+                "fill": "#333333",
+                "outlineWidth": 0,
+                "outlineColor": "transparent"
+            },
+            "axis": {
+                "domain": {
+                    "line": {
+                        "stroke": "#777777",
+                        "strokeWidth": 1
+                    }
+                },
+                "legend": {
+                    "text": {
+                        "fontSize": 50,
+                        "fill": "#333333",
+                        "outlineWidth": 0,
+                        "outlineColor": "transparent"
+                    }
+                },
+                "ticks": {
+                    "line": {
+                        "stroke": "#777777",
+                        "strokeWidth": 1
+                    },
+                    "text": {
+                        "fontSize": 22,
+                        "fill": "#333333",
+                        "outlineWidth": 0,
+                        "outlineColor": "transparent"
+                    }
+                }
+            },
+            "grid": {
+                "line": {
+                    "stroke": "#dddddd",
+                    "strokeWidth": 1
+                }
+            },
+            "legends": {
+                "title": {
+                    "text": {
+                        "fontSize": 20,
+                        "fill": "#333333",
+                        "outlineWidth": 0,
+                        "outlineColor": "transparent"
+                    }
+                },
+                "text": {
+                    "fontSize": 30,
+                    "fill": "#333333",
+                    "outlineWidth": 0,
+                    "outlineColor": "transparent"
+                },
+                "ticks": {
+                    "line": {},
+                    "text": {
+                        "fontSize": 20,
+                        "fill": "#333333",
+                        "outlineWidth": 0,
+                        "outlineColor": "transparent"
+                    }
+                }
+            },
+            "annotations": {
+                "text": {
+                    "fontSize": 13,
+                    "fill": "#333333",
+                    "outlineWidth": 2,
+                    "outlineColor": "#ffffff",
+                    "outlineOpacity": 1
+                },
+                "link": {
+                    "stroke": "#000000",
+                    "strokeWidth": 1,
+                    "outlineWidth": 2,
+                    "outlineColor": "#ffffff",
+                    "outlineOpacity": 1
+                },
+                "outline": {
+                    "stroke": "#000000",
+                    "strokeWidth": 2,
+                    "outlineWidth": 2,
+                    "outlineColor": "#ffffff",
+                    "outlineOpacity": 1
+                },
+                "symbol": {
+                    "fill": "#000000",
+                    "outlineWidth": 2,
+                    "outlineColor": "#ffffff",
+                    "outlineOpacity": 1
+                }
+            },
+            "tooltip": {
+                "container": {
+                    "background": "#ffffff",
+                    "fontSize": 12
+                },
+                "basic": {},
+                "chip": {},
+                "table": {},
+                "tableCell": {},
+                "tableCellValue": {}
+            },
+            "labels": {
+                "text": {
+                    "fontSize": 30
+                }
+            }
+        }}
         keys={['Female', 'Male']}
         indexBy="subject"
-        margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
+        margin={props.size === "small" ? { top: 20, right: 20, bottom: 25, left: 30 } : { top: 50, right: 180, bottom: 120, left: 120 }}
         padding={0.3}
         valueScale={{ type: 'linear' }}
         indexScale={{ type: 'band', round: true }}
@@ -112,21 +340,39 @@ const Wordiness = (props) => {
         }}
         axisTop={null}
         axisRight={null}
-        axisBottom={{
+        axisBottom={props.size === "small" ? {
+            tickSize: 0,
+            tickPadding: 0,
+            tickRotation: 0,
+            legend: 'Subject',
+            legendPosition: 'middle',
+            legendOffset: 20
+        }
+        :
+        {
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 0,
             legend: 'Subject',
             legendPosition: 'middle',
-            legendOffset: 32
+            legendOffset: 90
         }}
-        axisLeft={{
+        axisLeft={props.size === "small" ? {
+            tickSize: 0,
+            tickPadding: 0,
+            tickRotation: 0,
+            legend: "Words Per Message",
+            legendPosition: 'middle',
+            legendOffset: -20
+        }
+        :
+        {
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 0,
-            legend: "Characters Per Message",
+            legend: "Words Per Message",
             legendPosition: 'middle',
-            legendOffset: -40
+            legendOffset: -90
         }}
         labelSkipWidth={12}
         labelSkipHeight={12}
@@ -139,7 +385,7 @@ const Wordiness = (props) => {
                 ]
             ]
         }}
-        legends={[
+        legends={props.size === "small" ? [] : [
             {
                 dataFrom: 'keys',
                 anchor: 'bottom-right',
@@ -147,12 +393,12 @@ const Wordiness = (props) => {
                 justify: false,
                 translateX: 120,
                 translateY: 0,
-                itemsSpacing: 2,
+                itemsSpacing: 20,
                 itemWidth: 100,
-                itemHeight: 20,
+                itemHeight: 100,
                 itemDirection: 'left-to-right',
                 itemOpacity: 0.85,
-                symbolSize: 20,
+                symbolSize: 30,
                 effects: [
                     {
                         on: 'hover',

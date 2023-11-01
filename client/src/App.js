@@ -1,13 +1,15 @@
 import './App.css';
 import TimeBySubject from './components/charts/TimeBySubject';
-import { useEffect, useState, useSyncExternalStore } from 'react';
+import { useEffect, useState } from 'react';
 import SubjectByMonth from './components/charts/SubjectByMonth';
 import LengthBySubject from './components/charts/LengthBySubject';
 import ConversationsByGender from './components/charts/ConversationsByGender';
 import Wordiness from './components/charts/Wordiness';
-import { Routes, Link, Route, Router, Switch } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Months from './components/other/Months';
 import Home from './components/other/Home';
+import Dashboard from './components/other/Dashboard';
+import ErrorBoundary from './components/other/ErrorBoundary';
 
 
 
@@ -38,34 +40,43 @@ function App() {
         startMonth={startMonth}
         endMonth={endMonth}
       />
-
+      <div className='container'>
+        <ErrorBoundary>
         <Routes>
-          <Route path="/ConversationsByGender" element={<ConversationsByGender 
+          <Route path="/conversationsByGender" element={<ConversationsByGender 
                                             conversationData={conversationData}
                                             startMonth={startMonth}
                                             endMonth={endMonth}/>} />
-          <Route path="/LengthBySubject" element={<LengthBySubject 
+          <Route path="/lengthBySubject" element={<LengthBySubject 
                                             conversationData={conversationData}
                                             startMonth={startMonth}
                                             endMonth={endMonth}/>} />
-          <Route path="/SubjectByMonth" element={<SubjectByMonth 
+          <Route path="/subjectByMonth" element={<SubjectByMonth 
                                             conversationData={conversationData}
                                             startMonth={startMonth}
                                             endMonth={endMonth}/>} />
-          <Route path="/TimeBySubject" element={<TimeBySubject 
+          <Route path="/timeBySubject" element={<TimeBySubject 
                                             conversationData={conversationData}
                                             startMonth={startMonth}
                                             endMonth={endMonth}/>} />
-          <Route path="/Wordiness" element={<Wordiness 
+          <Route path="/wordiness" element={<Wordiness 
                                             conversationData={conversationData}
                                             startMonth={startMonth}
                                             endMonth={endMonth}/>} />
-          <Route path="/" element={<Home 
+          <Route path="/dashboard" element={<Dashboard 
+                                            conversationData={conversationData}
+                                            startMonth={startMonth}
+                                            endMonth={endMonth}/>} />
+          <Route path="/" element={<Dashboard 
                                     conversationData={conversationData}
                                     startMonth={startMonth}
                                     endMonth={endMonth}/>} />
 
         </Routes>
+        </ErrorBoundary>
+        
+
+        </div>
 
         
 

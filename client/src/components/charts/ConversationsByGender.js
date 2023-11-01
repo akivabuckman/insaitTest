@@ -56,7 +56,230 @@ const ConversationsByGender = (props) => {
             <p className='description'>Shows how many of the conversation were initiated by males or females</p>
             <ResponsivePie
                     data={cleanData}
-                    margin={{ top: 40, right: 80, bottom: 80, left: 80 }}
+                    theme={props.size === "small" ? {
+                        "background": "#ffffff",
+                        "text": {
+                            "fontSize": 11,
+                            "fill": "#333333",
+                            "outlineWidth": 0,
+                            "outlineColor": "transparent"
+                        },
+                        "axis": {
+                            "domain": {
+                                "line": {
+                                    "stroke": "#777777",
+                                    "strokeWidth": 1
+                                }
+                            },
+                            "legend": {
+                                "text": {
+                                    "fontSize": 12,
+                                    "fill": "#333333",
+                                    "outlineWidth": 0,
+                                    "outlineColor": "transparent"
+                                }
+                            },
+                            "ticks": {
+                                "line": {
+                                    "stroke": "#777777",
+                                    "strokeWidth": 1
+                                },
+                                "text": {
+                                    "fontSize": 0,
+                                    "fill": "#333333",
+                                    "outlineWidth": 0,
+                                    "outlineColor": "transparent"
+                                }
+                            }
+                        },
+                        "grid": {
+                            "line": {
+                                "stroke": "#dddddd",
+                                "strokeWidth": 1
+                            }
+                        },
+                        "legends": {
+                            "title": {
+                                "text": {
+                                    "fontSize": 11,
+                                    "fill": "#333333",
+                                    "outlineWidth": 0,
+                                    "outlineColor": "transparent"
+                                }
+                            },
+                            "text": {
+                                "fontSize": 11,
+                                "fill": "#333333",
+                                "outlineWidth": 0,
+                                "outlineColor": "transparent"
+                            },
+                            "ticks": {
+                                "line": {},
+                                "text": {
+                                    "fontSize": 111,
+                                    "fill": "#333333",
+                                    "outlineWidth": 0,
+                                    "outlineColor": "transparent"
+                                }
+                            }
+                        },
+                        "annotations": {
+                            "text": {
+                                "fontSize": 13,
+                                "fill": "#333333",
+                                "outlineWidth": 2,
+                                "outlineColor": "#ffffff",
+                                "outlineOpacity": 1
+                            },
+                            "link": {
+                                "stroke": "#000000",
+                                "strokeWidth": 1,
+                                "outlineWidth": 2,
+                                "outlineColor": "#ffffff",
+                                "outlineOpacity": 1
+                            },
+                            "outline": {
+                                "stroke": "#000000",
+                                "strokeWidth": 2,
+                                "outlineWidth": 2,
+                                "outlineColor": "#ffffff",
+                                "outlineOpacity": 1
+                            },
+                            "symbol": {
+                                "fill": "#000000",
+                                "outlineWidth": 2,
+                                "outlineColor": "#ffffff",
+                                "outlineOpacity": 1
+                            }
+                        },
+                        "tooltip": {
+                            "container": {
+                                "background": "#ffffff",
+                                "fontSize": 12
+                            },
+                            "basic": {},
+                            "chip": {},
+                            "table": {},
+                            "tableCell": {},
+                            "tableCellValue": {}
+                        }
+                    }
+                    :
+                    // big
+                    {
+                        "background": "#ffffff",
+                        "text": {
+                            "fontSize": 22,
+                            "fill": "#333333",
+                            "outlineWidth": 0,
+                            "outlineColor": "transparent"
+                        },
+                        "axis": {
+                            "domain": {
+                                "line": {
+                                    "stroke": "#777777",
+                                    "strokeWidth": 1
+                                }
+                            },
+                            "legend": {
+                                "text": {
+                                    "fontSize": 22,
+                                    "fill": "#333333",
+                                    "outlineWidth": 0,
+                                    "outlineColor": "transparent"
+                                }
+                            },
+                            "ticks": {
+                                "line": {
+                                    "stroke": "#777777",
+                                    "strokeWidth": 1
+                                },
+                                "text": {
+                                    "fontSize": 444,
+                                    "fill": "#333333",
+                                    "outlineWidth": 0,
+                                    "outlineColor": "transparent"
+                                }
+                            },
+                        },
+                        "grid": {
+                            "line": {
+                                "stroke": "#dddddd",
+                                "strokeWidth": 1
+                            }
+                        },
+                        "legends": {
+                            "title": {
+                                "text": {
+                                    "fontSize": 22,
+                                    "fill": "#333333",
+                                    "outlineWidth": 0,
+                                    "outlineColor": "transparent"
+                                }
+                            },
+                            "text": {
+                                "fontSize": 22,
+                                "fill": "#333333",
+                                "outlineWidth": 0,
+                                "outlineColor": "transparent"
+                            },
+                            "ticks": {
+                                "line": {},
+                                "text": {
+                                    "fontSize": 22,
+                                    "fill": "#333333",
+                                    "outlineWidth": 0,
+                                    "outlineColor": "transparent"
+                                }
+                            }
+                        },
+                        "annotations": {
+                            "text": {
+                                "fontSize": 22,
+                                "fill": "#333333",
+                                "outlineWidth": 2,
+                                "outlineColor": "#ffffff",
+                                "outlineOpacity": 1
+                            },
+                            "link": {
+                                "stroke": "#000000",
+                                "strokeWidth": 1,
+                                "outlineWidth": 2,
+                                "outlineColor": "#ffffff",
+                                "outlineOpacity": 1
+                            },
+                            "outline": {
+                                "stroke": "#000000",
+                                "strokeWidth": 2,
+                                "outlineWidth": 2,
+                                "outlineColor": "#ffffff",
+                                "outlineOpacity": 1
+                            },
+                            "symbol": {
+                                "fill": "#000000",
+                                "outlineWidth": 2,
+                                "outlineColor": "#ffffff",
+                                "outlineOpacity": 1
+                            }
+                        },
+                        "tooltip": {
+                            "container": {
+                                "background": "#ffffff",
+                                "fontSize": 12
+                            },
+                            "basic": {},
+                            "chip": {},
+                            "table": {},
+                            "tableCell": {},
+                            "tableCellValue": {}
+                        },
+                        "labels": {
+                            "text": {
+                                "fontSize": 44
+                            }
+                        }
+                    }}
+                    margin={props.size === "small" ? { top: 10, right: 0, bottom: 20, left: 0 } : { top: 40, right: 80, bottom: 80, left: 80 }}
                     innerRadius={0.5}
                     padAngle={0.7}
                     cornerRadius={3}
