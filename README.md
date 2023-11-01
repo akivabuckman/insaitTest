@@ -8,8 +8,9 @@ The code to create the database and it's tables can be found in
 
 ## Setting Up the Server and Client
 1. Navigate to the "client" folder:
+```
 \InsaitTest\client
-
+```
 2. Inside the "client" folder, run the following command to install the client's dependencies:
 ```
 cd client
