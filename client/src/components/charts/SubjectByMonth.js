@@ -67,15 +67,6 @@ const SubjectByMonth = (props) => {
         cleanTheData();
     }, [subjectByMonthData])
 
-    const Loggy = () => {
-        return (
-            <button onClick={()=>{
-                console.log(props.size)
-            }}>Logggg</button>
-        )
-    }
-
-
     return(
         <div className='chartDiv'>
             <h1>Subject By Month</h1>

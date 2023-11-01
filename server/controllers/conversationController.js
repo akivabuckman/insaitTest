@@ -1,4 +1,4 @@
-import { addConversation, clearConversations, getConversations, exchangeDuplicates, conversationHeaders, checkForBlanks } from "../models/conversationModels.js";
+import { addConversation, clearConversations, exchangeDuplicates, conversationHeaders, checkForBlanks } from "../models/conversationModels.js";
 import dotenv from "dotenv"
 import chats from "../assets/chats.json" assert { type: "json"}
 
@@ -33,7 +33,7 @@ export const _addConversation = async (req, res) => {
         // chat
         const exchanges = chats[req.body.chatIndex];
 
-        // basic function to determine subject
+        // rudimentary function to determine subject
         const chatText = JSON.stringify(exchanges);
         let subject;
         if (chatText.includes("mortgage")) {
@@ -56,14 +56,13 @@ export const _addConversation = async (req, res) => {
         const row = await addConversation(client_id, duration, start_time, subject, exchanges);
         res.json(row)
 
-
     } catch (error) {
       res.status(404).json({ msg: "err" });
-}
-
+    }
 };
 
 export const _populateConversations = async (req, res) => {
+    // takes argument of how many conversations to create
     const quantity = req.body.quantity;
     try {
         // clear old conversations before new populating
@@ -101,25 +100,14 @@ export const _populateConversations = async (req, res) => {
             if (blanks.length > 0) {
                 allBlanks.push({header: blanks})
                 blanksFound = true
-            }
-        }
+            };
+        };
         if (blanksFound) {
-            res.json({"blanks were found:": allBlanks})
-        }
-
+            res.json({"blanks were found:": allBlanks.toString()})
+        };
 
         res.json({ msg: "Conversations added successfully" });
     } catch (error) {
-        res.status(404).json({ error: error.message });
-    }
-};
-
-export const _getConversations = async (req, res) => {
-    try {
-        const conversations = await getConversations();
-        res.json(conversations)
-    } catch (error) {
-        console.log(error)
-        res.status(500).json({ error: error.message });
-    }
+        res.status(400).json({ error: error.message });
+    };
 };

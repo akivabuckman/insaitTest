@@ -17,27 +17,11 @@
   flex-direction: column;
   align-items: center;
 }
-.chartDiv {
-  height: 70vh;
-  width: 90%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-}
 
-.container > .chartDiv {
-  height: 70vh;
-}
-
-.chartDiv * {
-  margin-bottom: 10px;
-}
-
-.monthsDiv {
+.navbarDiv {
   display: flex;
   justify-content: center;
-  padding-top: 20px;
+  padding-top: 10px;
   padding-bottom: 10px;
   margin-bottom: 20px;
   position: fixed;
@@ -49,15 +33,32 @@
   align-items: center;
 }
 
-
-.monthsDiv * {
+.navbarDiv * {
   margin-left: 10px;
 }
 
-.reactLink {
+.dashboardDiv {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.container > .chartDiv {
+  height: 70vh;
+}
+
+.chartDiv * {
+  margin-bottom: 10px;
+}
+
+.chartDiv {
+  height: 70vh;
+  width: 90%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
 }
 
 .smallChart {
@@ -69,42 +70,21 @@
   align-items: center;
   padding-bottom: 5px;
   padding-top: 10px;
-  border-radius: 10px;
+  border-radius: 20px;
   transition: all .5s;
-}
-
-h1 {
-  text-align: center;
-}
-
-.homeDiv {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-.dashboardDiv {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  margin-bottom: 50px;
-}
-.dashboardDiv .smallChart {
+  margin: 15px 50px 0px 0px;
   justify-content: space-between;
   padding-bottom: 10px;
 }
 
-.dashboardDiv .smallChart * {
+.smallChart * {
   max-height: 80%;
 }
 
-/* .smallChart img {
-  max-width: 100%;
-  height: 300px;
-} */
-
-.homeDiv > div:nth-child(n+4), .dashboardDiv > div:nth-child(n+4) {
-  margin-top: 20px;
+.smallChartEmpty {
+  margin: 15px 50px 0px 0px;
+  width: 27%;
+  height: 40vh;
 }
 
 .smallChart:hover {
@@ -112,13 +92,3 @@ h1 {
   box-shadow: 0 0 20px rgba(0, 123, 255, 0.7);
   transform: scale(1.03);
 }
-
-/* a {
-  text-decoration: none;
-  font-size: 20px;
-  color: black;
-}
-
-a:visited {
-  color: black
-} */

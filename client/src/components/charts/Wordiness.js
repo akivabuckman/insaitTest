@@ -11,7 +11,6 @@ const Wordiness = (props) => {
         const response = await fetch(`http://localhost:5000/analytics/wordiness/${props.startMonth}/${props.endMonth}`);
         const data = await response.json();
         setWordinessData(data);
-        console.log(data)
     };
 
     useEffect(()=>{

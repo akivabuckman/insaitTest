@@ -4,7 +4,6 @@ import { _timeBySubject, _filterData, _subjectByMonth, _lengthBySubject, _conver
 
 const analyticRouter = express.Router();
 analyticRouter.get("/timeBySubject/:startMonth/:endMonth", _timeBySubject);
-// analyticRouter.get("/filterData/:startMonth/:endMonth", _filterData);
 analyticRouter.get("/subjectByMonth/:startMonth/:endMonth", _subjectByMonth);
 analyticRouter.get("/lengthBySubject/:startMonth/:endMonth", _lengthBySubject);
 analyticRouter.get("/conversationsByGender/:startMonth/:endMonth", _conversationsByGender);

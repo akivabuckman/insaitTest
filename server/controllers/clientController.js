@@ -14,8 +14,7 @@ export const _addClient = async (req, res) => {
       const row = await addClient(gender, first_name, last_name);
       res.json(row);
     } catch (e) {
-      console.log(e);
-      res.status(404).json({ msg: "err" });
+      res.status(400).json({ msg: "err" });
     }
 };
 
@@ -24,8 +23,7 @@ export const _getClients = async (req, res) => {
     const clients = await getClients();
     res.json(clients);
   } catch (e) {
-    console.log(e);
-    res.status(404).json({ msg: "err" });
+    res.status(400).json({ msg: "err" });
   }
 };
 
@@ -47,6 +45,6 @@ export const _populateClients = async (req, res) => {
 
       res.json({ msg: "Clients added successfully" });
   } catch (error) {
-      res.status(404).json({ error: error.message });
+      res.status(400).json({ error: error.message });
   }
 };

@@ -6,8 +6,7 @@ import LengthBySubject from './components/charts/LengthBySubject';
 import ConversationsByGender from './components/charts/ConversationsByGender';
 import Wordiness from './components/charts/Wordiness';
 import { Routes, Route } from "react-router-dom";
-import Months from './components/other/Months';
-import Home from './components/other/Home';
+import Navbar from './components/other/Navbar';
 import Dashboard from './components/other/Dashboard';
 import ErrorBoundary from './components/other/ErrorBoundary';
 
@@ -33,7 +32,7 @@ function App() {
 
   return (
     <div className="App">
-      <Months 
+      <Navbar 
         setConversationData={setConversationData}
         setStartMonth={setStartMonth}
         setEndMonth={setEndMonth}

@@ -3,13 +3,13 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const db = knex({
-  client: "pg",
+  client: process.env.DBCLIENT,
   connection: {
-    host: "localhost",
-    port: 5432,
-    user: "postgres",
+    host: process.env.DBHOST,
+    port: process.env.DBPORT,
+    user: process.env.DBUSER,
     password: process.env.DBPW,
-    database: "insaitTestDB",
+    database: process.env.DB,
   },
 });
 

@@ -17,11 +17,6 @@ const TimeBySubject = (props) => {
         getTimeBySubject()
     }, [props.startMonth, props.endMonth, props.conversationData]);
 
-    const Loggy = () => {
-        console.log(cleanData)
-    }
-
-
     // convert raw data to fit the chart
     const cleanTheData = () => {
         const subjects = ["mortgages", "wire transfers", "transfers", "credit cards", "accounts", "investments", "other"]
@@ -50,7 +45,6 @@ const TimeBySubject = (props) => {
                 })
             };
         };
-        console.log(newData)
         setCleanData(newData)
     }
 

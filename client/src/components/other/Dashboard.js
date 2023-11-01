@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import SubjectByMonth from '../../components/charts/SubjectByMonth';
 import LengthBySubject from '../../components/charts/LengthBySubject';
@@ -65,6 +65,7 @@ const Dashboard = (props) => {
                         <Button variant="outlined" onClick={()=>navigate("/timeBySubject")}>Enlarge</Button>
                 </div>
             </ErrorBoundary>
+            <div className='smallChartEmpty'></div>
         </div>
         
     )

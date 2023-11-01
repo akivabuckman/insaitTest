@@ -7,33 +7,12 @@ import cors from "cors";
 
 
 const app = express();
-const port = 5000;
-// const { Pool } = pg;
+const port = process.env.PORT;
+
 dotenv.config();
-
-// const dbConfig = {
-//   user: 'postgres',
-//   host: 'localhost',
-//   database: 'insaitTestDB',
-//   password: process.env.DBPW,
-//   port: 5432,
-// };
-
-// const pool = new Pool(dbConfig);
 
 app.use(express.json());
 app.use(cors());
-
-
-// app.get('/getUsers', async (req, res) => {
-//   try {
-//     const result = await pool.query('SELECT * FROM conversations');
-//     res.json(result.rows);
-//   } catch (error) {
-//     console.error('Error querying the database:', error);
-//     res.status(500).json({ error: 'Internal server error' });
-//   }
-// });
 
 app.use("/clients", clientRouter);
 app.use("/conversations", conversationRouter);
