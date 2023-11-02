@@ -1,6 +1,7 @@
 import { addConversation, clearConversations, exchangeDuplicates, conversationHeaders, checkForBlanks } from "../models/conversationModels.js";
 import dotenv from "dotenv"
 import chats from "../assets/chats.js";
+import fetch from "node-fetch";
 
 
 dotenv.config()

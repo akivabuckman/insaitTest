@@ -7,9 +7,6 @@ import cors from "cors";
 import path from "path";
 import fetch from "node-fetch";
 
-
-
-
 const app = express();
 const port = process.env.PORT;
 
@@ -20,8 +17,6 @@ const __dirname = path.resolve();
 
 app.use(express.json());
 app.use(cors());
-
-app.use(fetch());
 
 app.use("/", express.static(__dirname + "/public"));
 
