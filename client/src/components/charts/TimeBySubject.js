@@ -9,7 +9,7 @@ const TimeBySubject = (props) => {
 
     // fetch data that will fit this chart
     const getTimeBySubject = async () => {
-        const response = await fetch(`${process.env.ADDRESS}/analytics/timeBySubject/${props.startMonth}/${props.endMonth}`);
+        const response = await fetch(`${process.env.REACT_APP_ADDRESS}/analytics/timeBySubject/${props.startMonth}/${props.endMonth}`);
         const data = await response.json();
         setTimeBySubjectData(data);
     }

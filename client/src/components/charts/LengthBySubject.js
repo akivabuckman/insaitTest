@@ -13,7 +13,7 @@ const LengthBySubject = (props) => {
 
     // fetch data that will fit this chart
     const getLengthBySubject = async () => {
-        const response = await fetch(`${process.env.ADDRESS}/analytics/lengthBySubject/${props.startMonth}/${props.endMonth}`);
+        const response = await fetch(`${process.env.REACT_APP_ADDRESS}/analytics/lengthBySubject/${props.startMonth}/${props.endMonth}`);
         const data = await response.json();
         setLengthBySubjectData(data);
     };

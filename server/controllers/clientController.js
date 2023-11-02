@@ -32,7 +32,7 @@ export const _populateClients = async (req, res) => {
   try {
       // call _addClient X times, function of given quantity
       for (let clientIndex = 0; clientIndex < quantity; clientIndex++) {
-          const response = await fetch(`${process.env.ADDRESS}/clients/addClient`, {
+          const response = await fetch(`${process.env.REACT_APP_ADDRESS}/clients/addClient`, {
               method: "POST",
               headers: { "content-type": "application/json" },
               body: JSON.stringify({})

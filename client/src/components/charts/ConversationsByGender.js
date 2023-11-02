@@ -10,7 +10,7 @@ const ConversationsByGender = (props) => {
 
     // fetch data that will fit this chart
     const getConversationsByGender = async () => {
-        const response = await fetch(`${process.env.ADDRESS}/analytics/conversationsByGender/${props.startMonth}/${props.endMonth}`);
+        const response = await fetch(`${process.env.REACT_APP_ADDRESS}/analytics/conversationsByGender/${props.startMonth}/${props.endMonth}`);
         const data = await response.json();
         setConversationsByGenderData(data);
     };
