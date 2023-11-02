@@ -13,8 +13,13 @@ const port = process.env.PORT;
 
 dotenv.config();
 
+const __dirname = path.resolve();
+
+
 app.use(express.json());
 app.use(cors());
+
+app.use("/", express.static(__dirname + "/public"));
 
 app.use("/clients", clientRouter);
 app.use("/conversations", conversationRouter);
@@ -25,7 +30,6 @@ app.listen(port, () => {
 });
 
 // DEPLOYMENT
-const __dirname = path.resolve();
 app.use(express.static(path.join(__dirname, "client/build")));
 
 // All other GET requests not handled before will return our React app
