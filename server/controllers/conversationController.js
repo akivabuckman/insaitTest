@@ -9,7 +9,7 @@ dotenv.config()
 export const _addConversation = async (req, res) => {
     try {
         // randomly choose client id from existing clients
-        const clientsResponse = await fetch("https://insait.onrender.com/clients/getClients");
+        const clientsResponse = await fetch("./clients/getClients");
         if (!clientsResponse.ok) {
             res.status(clientsResponse.status).json({ error: 'Client request failed' });
             return;
@@ -72,7 +72,7 @@ export const _populateConversations = async (req, res) => {
 
         // call _addConversation X times, function of given quantity
         for (let chatIndex = 0; chatIndex < quantity; chatIndex++) {
-            const response = await fetch("https://insait.onrender.com/conversations/addConversation", {
+            const response = await fetch("./conversations/addConversation", {
                 method: "POST",
                 headers: { "content-type": "application/json" },
                 body: JSON.stringify({

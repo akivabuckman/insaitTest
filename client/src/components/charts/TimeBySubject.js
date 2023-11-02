@@ -9,7 +9,7 @@ const TimeBySubject = (props) => {
 
     // fetch data that will fit this chart
     const getTimeBySubject = async () => {
-        const response = await fetch(`https://insait.onrender.com/analytics/timeBySubject/${props.startMonth}/${props.endMonth}`);
+        const response = await fetch(`./analytics/timeBySubject/${props.startMonth}/${props.endMonth}`);
         const data = await response.json();
         setTimeBySubjectData(data);
     }

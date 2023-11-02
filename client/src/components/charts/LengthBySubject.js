@@ -13,7 +13,7 @@ const LengthBySubject = (props) => {
 
     // fetch data that will fit this chart
     const getLengthBySubject = async () => {
-        const response = await fetch(`https://insait.onrender.com/analytics/lengthBySubject/${props.startMonth}/${props.endMonth}`);
+        const response = await fetch(`./analytics/lengthBySubject/${props.startMonth}/${props.endMonth}`);
         const data = await response.json();
         setLengthBySubjectData(data);
     };
