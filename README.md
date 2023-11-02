@@ -34,6 +34,15 @@ CREATE TABLE public.conversations
 ```
 /InsaitTest/server
 ```
+It's variables should be named as shown. Fill in the credentials as set up in your local database:
+```
+DBCLIENT=
+DBHOST=
+DBPORT=
+DBUSER=
+DBPW=
+DB=
+```
 
 ## Setting Up the Server
 1. Navigate to the "server" folder terminal:
