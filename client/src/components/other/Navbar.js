@@ -51,6 +51,7 @@ const Navbar = (props) => {
 
     return (
         <div className="navbarDiv">
+          <button onClick={populateClients} >clients</button>
             <Button onClick={goHome} size="medium" variant="contained" style={{ marginLeft: '20px' }}>Home</Button>
             <p>Start Month:</p>
             <Select
