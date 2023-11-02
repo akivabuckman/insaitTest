@@ -18,7 +18,7 @@ function App() {
 
   // fetch all data from server
   const getConversationData = async () => {
-    const conversationResonse = await fetch("https://insait.onrender.com/conversations/getConversations");
+    const conversationResonse = await fetch(`${process.env.ADDRESS}/conversations/getConversations`);
     const data = await conversationResonse.json();
     setConversationData(data)
   };

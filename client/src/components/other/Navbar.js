@@ -10,7 +10,7 @@ const Navbar = (props) => {
       // reset data, completely reset database
     const resetData = async () => {
         const conversationCount = 100;
-        const response = await fetch("https://insait.onrender.com/conversations/populate", {
+        const response = await fetch(`${process.env.ADDRESS}/conversations/populate`, {
           method: "POST",
           headers: {"content-type": "application/json"},
           body: JSON.stringify({"quantity": conversationCount})

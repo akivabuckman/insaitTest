@@ -1,6 +1,6 @@
 # InsaitTest Project
 
-This project consists of a React-based client application, a server component, and a database. Follow the steps below to set up and run the project.
+This project consists of a React-based client application, a server component, and a database. The project might be live at the time you're reading this, at https://insait.onrender.com/. If it is not live, you can run it locally. Follow the steps below to do so.
 
 ## Setting Up the Database
 1. In a local database platform (PgAdmin or other), create an empty database, and run the code below to initialize the database's tables.
