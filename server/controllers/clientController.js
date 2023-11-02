@@ -32,7 +32,7 @@ export const _populateClients = async (req, res) => {
   try {
       // call _addClient X times, function of given quantity
       for (let clientIndex = 0; clientIndex < quantity; clientIndex++) {
-          const response = await fetch("/clients/addClient", {
+          const response = await fetch("https://insait.onrender.com/clients/addClient", {
               method: "POST",
               headers: { "content-type": "application/json" },
               body: JSON.stringify({})
