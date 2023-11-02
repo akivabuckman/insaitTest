@@ -21,6 +21,8 @@ const __dirname = path.resolve();
 app.use(express.json());
 app.use(cors());
 
+app.use(fetch());
+
 app.use("/", express.static(__dirname + "/public"));
 
 app.use("/clients", clientRouter);
