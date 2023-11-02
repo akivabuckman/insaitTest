@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { ResponsiveBar } from '@nivo/bar';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+import fetch from 'node-fetch';
 
 
 const LengthBySubject = (props) => {

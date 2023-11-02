@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
-import { ResponsivePie } from '@nivo/pie'
+import { ResponsivePie } from '@nivo/pie';
+import fetch from 'node-fetch';
+
 
 
 const ConversationsByGender = (props) => {
