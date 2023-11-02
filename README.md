@@ -4,12 +4,13 @@ This project consists of a React-based client application and a server component
 
 ## Setting Up the Database
 The code to create the database and it's tables can be found in
-\InsaitTest\server\config\tables.sql
-
+```
+/InsaitTest/server/config/tables.sql
+```
 ## Setting Up the Server and Client
 1. Navigate to the "client" folder:
 ```
-\InsaitTest\client
+/InsaitTest/client
 ```
 2. Inside the "client" folder, run the following command to install the client's dependencies:
 ```
