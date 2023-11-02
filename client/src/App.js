@@ -19,7 +19,7 @@ function App() {
 
   // fetch all data from server
   const getConversationData = async () => {
-    const conversationResonse = await fetch("http://localhost:5000/conversations/getConversations");
+    const conversationResonse = await fetch("/conversations/getConversations");
     const data = await conversationResonse.json();
     setConversationData(data)
   };

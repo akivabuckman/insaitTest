@@ -8,7 +8,7 @@ const SubjectByMonth = (props) => {
 
     // fetch data that will fit this chart
     const getSubjectByMonth = async () => {
-        const response = await fetch(`http://localhost:5000/analytics/SubjectByMonth/${props.startMonth}/${props.endMonth}`);
+        const response = await fetch(`/analytics/SubjectByMonth/${props.startMonth}/${props.endMonth}`);
         const data = await response.json();
         setSubjectByMonthData(data);
     };
