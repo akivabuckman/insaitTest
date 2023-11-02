@@ -73,39 +73,9 @@ function App() {
 
         </Routes>
         </ErrorBoundary>
-        
 
         </div>
 
-        
-
-            {/* <TimeBySubject 
-              conversationData={conversationData}
-              startMonth={startMonth}
-              endMonth={endMonth}
-            />
-            <SubjectByMonth 
-              conversationData={conversationData}
-              startMonth={startMonth}
-              endMonth={endMonth}
-            />
-
-            <LengthBySubject 
-              conversationData={conversationData}
-              startMonth={startMonth}
-              endMonth={endMonth}
-            />
-            <ConversationsByGender
-              conversationData={conversationData}
-              startMonth={startMonth}
-              endMonth={endMonth}
-            /> */}
-
-            {/* <Wordiness
-              conversationData={conversationData}
-              startMonth={startMonth}
-              endMonth={endMonth}
-            /> */}
 
     </div>
   );
