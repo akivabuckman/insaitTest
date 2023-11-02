@@ -37,21 +37,9 @@ const Navbar = (props) => {
       props.setEndMonth(12)
     };
 
-    const populateClients = async () => {
-      const clientCount = 10;
-      const response = await fetch ("/clients/populate", {
-        method: "POST",
-        headers: {"content-type": "application/json"},
-        body: JSON.stringify({"quantity": clientCount})
-      });
-      const data = await response.json();
-    }
-
-
 
     return (
         <div className="navbarDiv">
-          <button onClick={populateClients} >clients</button>
             <Button onClick={goHome} size="medium" variant="contained" style={{ marginLeft: '20px' }}>Home</Button>
             <p>Start Month:</p>
             <Select

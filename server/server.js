@@ -5,6 +5,8 @@ import conversationRouter from './routes/conversationRoutes.js'
 import analyticRouter from "./routes/analyticRoutes.js"
 import cors from "cors";
 import path from "path";
+import fetch from "node-fetch";
+
 
 
 
