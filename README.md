@@ -1,14 +1,50 @@
 # InsaitTest Project
 
-This project consists of a React-based client application and a server component. Follow the steps below to set up and run the project.
+This project consists of a React-based client application, a server component, and a database. Follow the steps below to set up and run the project.
 
 ## Setting Up the Database
-1. The SQL code to create the database and it's tables can be found in
+1. Run this code in a local database platform (PgAdmin or other) to initialize the database and it's tables
 ```
-/InsaitTest/server/config/tables.sql
+CREATE DATABASE "insaitTestDB"
+    WITH
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    LC_COLLATE = 'English_United States.1252'
+    LC_CTYPE = 'English_United States.1252'
+    TABLESPACE = pg_default
+    CONNECTION LIMIT = -1
+    IS_TEMPLATE = False;
+
+
+CREATE TABLE public.clients
+(
+    id integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
+    gender character varying(50) COLLATE pg_catalog."default",
+    first_name character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    last_name character varying(50) COLLATE pg_catalog."default" NOT NULL,
+    CONSTRAINT clients_pkey PRIMARY KEY (id)
+);
+
+
+CREATE TABLE public.conversations
+(
+    id integer NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 START 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1 ),
+    client_id integer NOT NULL,
+    duration integer,
+    subject character varying(20) COLLATE pg_catalog."default",
+    exchanges character varying(2000)[] COLLATE pg_catalog."default",
+    start_time timestamp(6) without time zone,
+    CONSTRAINT conversations_pkey PRIMARY KEY (id),
+    CONSTRAINT "conversations_clientId_fkey" FOREIGN KEY (client_id)
+        REFERENCES public.clients (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+)
 ```
-Run this code in a local database platform (PgAdmin or other).
-2. Modify the .env file as needed to match the database credentials.
+2. Create a .env file to match the chosen database credentials. The .env file should be created in:
+```
+/InsaitTest/server
+```
 
 ## Setting Up the Server
 1. Navigate to the "server" folder terminal:
@@ -31,15 +67,15 @@ Using a local API platform (Postman or other), run a post request to populate an
 http://localhost:5000/clients/populate
 ```
 If a different port number was used, adjust accordingly.
-
 The body of the request should be (change quantity of clients if desired):
 ```
-{"quantity": 100}
+{"quantity": 10}
 ```
 3. Run a new post request to populate initial conversations. The request should be made to:
 ```
 http://localhost:5000/conversations/populate
 ```
+If a different port number was used, adjust accordingly.
 The body of the request should be:
 ```
 {"quantity": 100}
