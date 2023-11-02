@@ -1,7 +1,5 @@
 import { addConversation, clearConversations, exchangeDuplicates, conversationHeaders, checkForBlanks } from "../models/conversationModels.js";
 import dotenv from "dotenv"
-// import chats from "../assets/chats.json" assert { type: "json"}
-// const chats = require("../assets/chats.json")
 import chats from "../assets/chats.js"
 
 dotenv.config()
