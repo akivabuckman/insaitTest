@@ -35,6 +35,16 @@ const Navbar = (props) => {
     const resetMonths = () => {
       props.setStartMonth(1);
       props.setEndMonth(12)
+    };
+
+    const populateClients = async () => {
+      const clientCount = 10;
+      const response = await fetch ("/clients/populate", {
+        method: "POST",
+        headers: {"content-type": "application/json"},
+        body: JSON.stringify({"quantity": clientCount})
+      });
+      const data = await response.json();
     }
 
 
