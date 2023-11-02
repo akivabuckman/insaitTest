@@ -1,7 +1,7 @@
 import { faker } from '@faker-js/faker';
 import { addClient, getClients } from "../models/clientModels.js";
 import dotenv from "dotenv";
-import fetch from 'node-fetch';
+
 
 dotenv.config()
 

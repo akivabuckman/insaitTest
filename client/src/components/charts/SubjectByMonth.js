@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { ResponsiveLine } from '@nivo/line';
-import fetch from 'node-fetch';
+
 
 
 const SubjectByMonth = (props) => {

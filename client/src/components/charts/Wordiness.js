@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { ResponsiveBar } from '@nivo/bar';
-import fetch from 'node-fetch';
+
 
 
 const Wordiness = (props) => {

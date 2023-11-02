@@ -1,6 +1,6 @@
 import { ResponsiveBar } from '@nivo/bar';
 import { useEffect, useState } from 'react';
-import fetch from 'node-fetch';
+
 
 const TimeBySubject = (props) => {
     const [timeBySubjectData, setTimeBySubjectData] = useState([]);
