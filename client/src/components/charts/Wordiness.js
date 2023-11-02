@@ -8,7 +8,7 @@ const Wordiness = (props) => {
 
     // fetch data that will fit this chart
     const getWordiness = async () => {
-        const response = await fetch(`http://localhost:5000/analytics/wordiness/${props.startMonth}/${props.endMonth}`);
+        const response = await fetch(`/analytics/wordiness/${props.startMonth}/${props.endMonth}`);
         const data = await response.json();
         setWordinessData(data);
     };
